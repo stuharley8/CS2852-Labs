@@ -1,0 +1,40 @@
+harleys Lab3.txt
+
+Results for balloon.dot with 100 desired dots
+Indexed ArrayList:   00:00:00.171
+Indexed LinkedList:  00:01:08.068
+Iterated ArrayList:  00:00:00.220
+Iterated LinkedList: 00:00:00.511
+
+Results for balloon.dot with 1000 desired dots
+Indexed ArrayList:   00:00:00.171
+Indexed LinkedList:  00:01:07.311
+Iterated ArrayList:  00:00:00.230
+Iterated LinkedList: 00:00:00.508
+
+Results for skull.dot with 9000 desired dots
+Indexed ArrayList:   00:00:00.354
+Indexed LinkedList:  00:05:18:689
+Iterated ArrayList:  00:00:00.301
+Iterated LinkedList: 00:00:00.559
+
+# Asymptotic Time Complexity Analysis for `removeDots()`
+
+removeDots() when using an ArrayList with n−1 desired dots: O(n)
+The while loop would run once and the interior code will run
+through the full ArrayList once and then end.
+
+removeDots() when using an ArrayList with 3 desired dots: O(n^2)
+The while loop would loop through the ArrayList n-3 times until there
+are only 3 dots remaining and each time the interior code would run through
+the entire ArrayList so this would be equal to (n-3)(n) = n^2 - 3n
+
+removeDots() when using a LinkedList with n−1 desired dots: O(n^2)
+The while loop would run once and the interior code will run
+through the full LinkedList once and then end. But because the LinkedList
+has to go through all of the nodes to get to the node it is trying to access,
+this would take another <n number of times each.
+
+removeDots() when using a LinkedList with 3 desired dots: O(n^3)
+Same as the LinkedList with n-1 desired slots but now the while loop will
+run n-3 times instead of a constant amount
