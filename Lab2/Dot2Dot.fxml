@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harleys.Dot2DotController">
+    <children>
+        <MenuBar prefHeight="0.0" prefWidth="400.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#open" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+                  <MenuItem fx:id="save" disable="true" mnemonicParsing="false" onAction="#save" text="Save" />
+                    </items>
+                </Menu>
+                <Menu fx:id="draw" disable="true" mnemonicParsing="false" text="Draw">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#drawOnlyLines" text="Lines Only" />
+                        <MenuItem mnemonicParsing="false" onAction="#drawOnlyDots" text="Dots Only" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeNumDots" text="Change Num Dots" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Canvas fx:id="canvas" height="600.0" width="600.0" />
+      <Label fx:id="numDotsLabel" alignment="CENTER" prefHeight="25.0" prefWidth="600.0" text="Number of Dots: 0" />
+    </children>
+</VBox>
