@@ -1,0 +1,129 @@
+# Sample Results and Discussion
+
+## Results of 3 x 3 Grid with Indexed ArrayList
+
+```
+Enter a Strategy (Enter Exactly as Shown) :
+SortedArrayList
+ArrayListIndexed
+LinkedListIndexed
+ArrayListIterated
+LinkedListIterated
+ArrayListIndexed
+
+Enter a WordList Filename:
+2000words.txt
+
+Enter a Grid Filename:
+grid3x3.txt
+Words Contained in Grid:
+senior
+she
+shoe
+hero
+her
+oil
+line
+
+Number of Words Contained in Grid: 7
+Time required: 368.020 milliseconds
+```
+
+## Results of 4 x 4 Grid with Iterated LinkedList
+
+```
+Enter a Strategy (Enter Exactly as Shown) :
+SortedArrayList
+ArrayListIndexed
+LinkedListIndexed
+ArrayListIterated
+LinkedListIterated
+LinkedListIterated
+
+Enter a WordList Filename:
+2000words.txt
+
+Enter a Grid Filename:
+grid4x4.txt
+Words Contained in Grid:
+its
+waste
+type
+tip
+tie
+ten
+team
+test
+task
+eat
+east
+fine
+fit
+base
+ask
+step
+set
+sea
+seat
+ten
+team
+test
+lose
+lot
+lots
+
+Number of Words Contained in Grid: 25
+Time required: 02:48.376
+```
+
+## Results of 6 x 6 Grid with SortedArrayList
+
+```
+SortedArrayList
+ArrayListIndexed
+LinkedListIndexed
+ArrayListIterated
+LinkedListIterated
+SortedArrayList
+
+Enter a WordList Filename:
+2000words.txt
+
+Enter a Grid Filename:
+grid6x6.txt
+
+Ran for over an hour and a half... so yeah, I had other stuff to do
+```
+
+## Description of approach for experimental benchmarking
+
+I ran all of the different strategies with the 2000words.txt dictionary and ran them on the 2x2 and 4x4 grids.
+Anything larger than this would take a long time to use every strategy. I then compared the times to
+determine which is the faster approach.
+
+### Benchmarking results
+
+```
+Index ArrayList 2x2: 39.174 milliseconds
+Index LinkedList 2x2: 207.755 milliseconds
+Iterated ArrayList 2x2: 30.038 milliseconds
+Iterated LinkedList 2x2: 31.485 milliseconds
+Sorted ArrayList 2x2: 24.119 milliseconds
+
+Index ArrayList 4x4: 00:53.676
+Index LinkedList 4x4: ran for at least 40 min before I terminated the program
+Iterated ArrayList 4x4: 01:17.819
+Iterated LinkedList 4x4: 02:48.376
+Sorted ArrayList 4x4: 00:02.802
+```
+
+### Conclusions based on your benchmarking tests
+
+The results show that as expected, the Indexed LinkedList (O(n^2)) was the slowest by far. When the list size was "small"
+and the grid size was small, the differences between each of the strategies was minimal. But once the grid size
+increases it became obvious that the sorted ArrayList is the fastest by far. This was not surprising since
+it is using a binary search algorithm in the contains method which runs with O(log n), while the other 3
+run with O(n). However, running any of these method once the grid size grows larger becomes exponentially slower
+since there are so many more word combinations that can be made and therefore must be checked. Also, the larger
+the dictionary file, the longer time it takes to check. So for any sort feasible implementation of this program
+for larger grids, this program would probably not work well.
