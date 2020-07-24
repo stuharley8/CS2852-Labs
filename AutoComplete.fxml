@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="harleys.AutoCompleteController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="400.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#open" text="Open" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Strategy">
+               <items>
+                  <RadioMenuItem fx:id="arrayListIndex" mnemonicParsing="false" onAction="#updateStrategy" selected="true" text="ArrayList with Index Methods">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Strategies" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="arrayListEnhanced" mnemonicParsing="false" onAction="#updateStrategy" text="ArrayList with Enhanced For Loop" toggleGroup="$Strategies" />
+                  <RadioMenuItem fx:id="linkedListIndex" mnemonicParsing="false" onAction="#updateStrategy" text="LinkedList with Index Methods" toggleGroup="$Strategies" />
+                  <RadioMenuItem fx:id="linkedListEnhanced" mnemonicParsing="false" onAction="#updateStrategy" text="LinkedList with Enhanced For Loop" toggleGroup="$Strategies" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextField fx:id="searchBar" layoutX="10.0" layoutY="50.0" onKeyReleased="#showMatches" prefHeight="25.0" prefWidth="380.0" />
+      <Label layoutX="10.0" layoutY="35.0" prefHeight="17.0" prefWidth="89.0" text="Search:" />
+      <Label layoutX="10.0" layoutY="85.0" prefHeight="17.0" prefWidth="68.0" text="Matches:" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="102.0" prefHeight="255.0" prefWidth="380.0" vbarPolicy="NEVER">
+         <content>
+            <TextArea fx:id="matchesTextArea" editable="false" prefHeight="255.0" prefWidth="380.0" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="timeLabel" layoutX="10.0" layoutY="365.0" text="Time required: 0.0 milliseconds" />
+      <Label fx:id="matchesLabel" layoutX="275.0" layoutY="365.0" text="Matches Found: 0" />
+   </children>
+</AnchorPane>
